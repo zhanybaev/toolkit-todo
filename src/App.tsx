@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import MainRoutes from './Routes';
 
 function App() {
   return (
     <div className="App">
+      <MainRoutes/>
     </div>
   );
 }

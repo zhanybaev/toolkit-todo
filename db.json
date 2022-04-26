@@ -1,3 +1,40 @@
 {
-    "products":[]
+  "products": [
+    {
+      "title": "Morning Fresh",
+      "type": "Breakfast",
+      "id": 1,
+      "price": 12.5,
+      "rating": [
+        5,
+        3,
+        4.3
+      ],
+      "img": "https://www.tooplate.com/templates/2129_crispy_kitchen/images/breakfast/brett-jordan-8xt8-HIFqc8-unsplash.jpg"
+    },
+    {
+      "title": "Premium Steak",
+      "type": "Dinner",
+      "price": "45",
+      "rating": [],
+      "img": "https://www.tooplate.com/templates/2129_crispy_kitchen/images/dinner/keriliwi-c3mFafsFz2w-unsplash.jpg",
+      "id": 3
+    },
+    {
+      "title": "Burger Set",
+      "type": "Breakfast",
+      "price": "20.50",
+      "rating": [],
+      "img": "https://www.tooplate.com/templates/2129_crispy_kitchen/images/breakfast/louis-hansel-dphM2U1xq0U-unsplash.jpg",
+      "id": 4
+    },
+    {
+      "title": "Seafood Set",
+      "type": "Dinner",
+      "price": "86",
+      "rating": [],
+      "img": "https://www.tooplate.com/templates/2129_crispy_kitchen/images/dinner/farhad-ibrahimzade-ZipYER3NLhY-unsplash.jpg",
+      "id": 5
+    }
+  ]
 }
