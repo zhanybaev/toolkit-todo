@@ -15,9 +15,6 @@ import './Navbar.css'
         //     </div>
         // </nav>
 
-        const hamburger = document.querySelector(".hamburger");
-        const navLinks = document.querySelector(".nav-links");
-        const links = document.querySelectorAll(".nav-links li");
         const animation = ()=>{
             //Animate Links
             document.querySelector(".nav-links")?.classList.toggle("open");
@@ -42,9 +39,13 @@ const Navbar = (): JSX.Element => {
                     <div className="line3"></div>
                 </div>
                 <ul className="nav-links">
-                    <li><span>Home</span></li>
+                    <Link className='link' to="/">
+                        <li><span>Home</span></li>
+                    </Link>
                     <li><span>Solutions</span></li>
-                    <li><span>Products</span></li>
+                    <Link className='link' to="/products">
+                        <li><span>Products</span></li>
+                    </Link>
                     <li><span>Services</span></li>
                     <li><span>Contact Us</span></li>
                     <li><button className="login-button">Login</button></li>

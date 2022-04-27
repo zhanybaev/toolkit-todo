@@ -6,9 +6,6 @@ import { IProduct, IState } from '../../types/products.types';
 
 const Home = (): JSX.Element => {
     const dispatch = useDispatch()
-    const { products: productsState } = useSelector((state:IState)=>state)
-    const { products } = productsState
-    
     const getAllProducts = async () => {
         try {
             let res = await axios('http://localhost:8000/products')
@@ -43,38 +40,16 @@ const Home = (): JSX.Element => {
             console.log(error);
         }
     }
-
-    const deleteProducts = async (id:any) =>{
-        await axios.delete(`http://localhost:8000/products/${id}`)
-        getAllProducts()
-    }
     
-    useEffect(()=>{
-        getAllProducts()
-    }, [])
+
 
     return (
-        <div>
+        <div style={{paddingTop:'150px'}}>
             <input onChange={handleInp} placeholder="title" name='title' value={values.title} type="text"/>
             <input onChange={handleInp} placeholder="type" name='type' value={values.type} type="text"/>
             <input onChange={handleInp} placeholder="img" name='img' value={values.img} type="text"/>
             <input onChange={handleInp} placeholder="price" name='price' value={values.price} type="text"/>
             <button onClick={()=>addNewProduct(values)} >add</button>
-
-
-            <div className='list' style={{display: 'flex', justifyContent:'space-evenly', marginTop:'100px', flexWrap:'wrap'}} >
-                {
-                    products && products.length ?
-                    products.map((item, index)=>(
-                        <div key={index}>
-                            <h4>{item.title}</h4>
-                            <img width={320} src={item.img} alt="" />
-                            <button onClick={()=>deleteProducts(item.id)} >Delete</button>
-                        </div>
-                    )):
-                    <h2>Wait a minute</h2>
-                }
-            </div>
         </div>
     );
 };

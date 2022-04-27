@@ -1,117 +1,7 @@
-/* * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: helvetica;
-	text-decoration: none;
-	list-style: none;
-} */
-
-  
-/* .container {
-	max-width: 1280px;
-	margin: 0 auto;
-	display: flex;
-	width: auto;
-	align-items:center;
-	justify-content: space-between;
-}
-  
-p {
-	font-size: 32px;
-	color: black;
-}
-   */
-/* .gradient { */
-	/* background-color: black; */
-	/* background-image: black; */
-
-	/* Use the text as a mask for the background. */
-	/* This will show the gradient as a text color rather than element bg. */
-	/* -webkit-background-clip: text; */
-	/* -webkit-text-fill-color: transparent;  */
-	/* -moz-background-clip: text; */
-	/* -moz-text-fill-color: transparent; */
-
-/* } */
-/* 
-.logo-txt {
-	padding-left: 10px;
-} */
-
-/* nav { */
-	/* position:; */
-	/* top:0px; */
-	/* left:0px; */
-	/* right:0px; */
-	/* z-index: 99px; */
-	/* background-color: #fbe771; */
-	/* padding: 16px 32px; */
-	/* box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px; */
-/* } */
-
-/* .nav-list {
-	justify-content: flex-end;
-	margin: 0 -16px;
-	color:white;
-}
-
-.nav-list span {
-	color: black;
-	margin: 0 16px;
-	font-weight: 600;
-	text-decoration: none;
-	transition: 0.4s;
-	padding: 8px 16px;
-}
-
-.nav-list span.active, .nav-list span:hover {
-	color: #e86a4f;
-	border-radius: 99px;
-} */
-
-
-/* .gradient.shimmer:hover { */
-	/* color: grey; */
-	/* -webkit-mask: linear-gradient(-60deg, #000 30%, #0005, #000 70%) right/300% */
-		/* 100%; */
-	/* background-repeat: no-repeat; */
-	/* animation: shimmer 2.5s infinite; */
-/* } */
-
-
-/* .display-text { */
-	/* font-size: 32px; */
-	/* font-weight: 900; */
-	/* text-transform: uppercase; */
-	/* text-align: center; */
-	/* margin: 0 auto; */
-	/* display: relative; */
-	/* margin-top: 20%; */
-	/* margin-left: 20%; */
-	/* margin-right: 15%; */
-/* } */
-
-/* .display-text.shimmer:hover{ */
-	/* color: grey; */
-	/* -webkit-mask: linear-gradient(-60deg, #000 30%, #0005, #000 70%) right/300% */
-	/* 100%; */
-	/* background-repeat: no-repeat; */
-	/* animation: shimmer 2.5s infinite; */
-/* } */
-
-/* @keyframes shimmer { */
-/* 100% { */
-	/* -webkit-mask-position: left; */
-/* } */
-/* } */
-
 *{
     margin: 0;
     padding: 0;
-    color: #f2f5f7;
     font-family: sans-serif;
-    letter-spacing: 1px;
     font-weight: 300;
 }
 body{
@@ -119,12 +9,19 @@ body{
 }
 nav{
     height: 6rem;
+    letter-spacing: 1px;
+    color: #f2f5f7;
     width: 100vw;
     background-color: #131418;
     box-shadow: 0 3px 20px rgba(0, 0, 0, 0.2);
     display: flex;
     position: fixed;
     z-index: 10;
+}
+
+.link{
+    text-decoration: none;
+	color: #f2f5f7;
 }
 
 /*Styling logo*/
@@ -166,7 +63,6 @@ nav{
     position: absolute;
     transition: all ease-in-out 250ms;
     margin: 0 0 10% 10%;
-	/* margin-top: 10px; */
 }
 .nav-links li span:hover::before{
     width: 80%;
@@ -176,12 +72,12 @@ nav{
 .login-button{
     background-color: transparent;
     border: 1.5px solid #f2f5f7;
+	color: #f2f5f7;
     border-radius: 2em;
     padding: 0.6rem 0.8rem;
     margin-left: 2vw;
     font-size: 1rem;
     cursor: pointer;
-
 }
 .login-button:hover {
     color: #131418;
@@ -278,6 +174,9 @@ nav{
     li.fade{
         opacity: 1;
     }
+	.login-button{
+		margin-left: 0 !important;
+	}
 }
 /*Animating Hamburger Icon on Click*/
 .toggle .line1{
