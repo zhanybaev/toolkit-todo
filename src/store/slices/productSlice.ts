@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { IProduct, IProductState } from "../../types/products.types";
+import { IProductState } from "../../types/products.types";
 
 
 const initialState:IProductState = {
@@ -16,9 +16,15 @@ export const productSlice = createSlice({
                 ...state,
                 products: action.payload
             }
+        },
+        getOneProduct: (state, action)=>{
+            return {
+                ...state,
+                product: action.payload
+            }
         }
     }
 })
 
 export const productReducer = productSlice.reducer
-export const { getProducts } = productSlice.actions
+export const { getProducts, getOneProduct } = productSlice.actions

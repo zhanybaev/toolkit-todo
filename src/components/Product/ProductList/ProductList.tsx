@@ -1,8 +1,9 @@
 import axios from 'axios';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getProducts } from '../../store/slices/productSlice';
-import { IState } from '../../types/products.types';
+import { Link } from 'react-router-dom';
+import { getProducts } from '../../../store/slices/productSlice';
+import { IState } from '../../../types/products.types';
 import './ProductList.css'
 
 const ProductList = (): JSX.Element => {
@@ -12,8 +13,8 @@ const ProductList = (): JSX.Element => {
 
     const getAllProducts = async () => {
         try {
-            let res = await axios('http://localhost:8000/products')
-            dispatch(getProducts(res.data))
+            let { data } = await axios('http://localhost:8000/products')
+            dispatch(getProducts(data))
         } catch (error) {
             console.error(error)
         }
@@ -34,7 +35,9 @@ const ProductList = (): JSX.Element => {
                 products && products.length ?
                 products.map((item, index)=>(
                     <div key={index}>
-                        <h4>{item.title}</h4>
+                        <Link to={`/detail/${item.id}`}>
+                            <h4>{item.title}</h4>
+                        </Link>
                         <img width={320} src={item.img} alt="" />
                         <button style={{color:'red'}} onClick={()=>deleteProducts(item.id)} >Delete</button>
                     </div>
