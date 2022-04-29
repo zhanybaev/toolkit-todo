@@ -9,7 +9,6 @@ const ProductDetail = (): JSX.Element => {
     const {id}:any = useParams()
     const { products: productsState } = useSelector((state:IState)=>state)
     const { product } = productsState;
-    console.log(product);
     
     const dispatch = useDispatch()
     const getDetail = async (id:string|number) => {
