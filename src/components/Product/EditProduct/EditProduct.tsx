@@ -1,8 +1,8 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { getDetail } from '../../../store/actions/product.action';
 import { useNavigate, useParams } from 'react-router-dom';
-import { getOneProduct } from '../../../store/slices/productSlice';
 import { IState, IProduct } from '../../../types/products.types';
 import './EditProduct.css'
 
@@ -20,15 +20,6 @@ const EditProduct = ():JSX.Element => {
     
     const dispatch = useDispatch()
 
-    const getDetail = async (id:string|number) => {
-        try {
-            let { data } = await axios(`http://localhost:8000/products/${id}`)
-            dispatch(getOneProduct(data))
-        } catch (error) {
-            console.error(error)
-        }
-    }
-
     const handleEditInp = (e:any) => {
         if(values){
             let obj = {
@@ -40,7 +31,7 @@ const EditProduct = ():JSX.Element => {
     }
 
     useEffect(()=>{
-        getDetail(id)
+        getDetail(dispatch, id)
     }, [])
 
 

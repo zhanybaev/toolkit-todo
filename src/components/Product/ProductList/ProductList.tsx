@@ -1,33 +1,24 @@
 import axios from 'axios';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
+import { getAllProducts } from '../../../store/actions/product.action';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { getProducts } from '../../../store/slices/productSlice';
 import { IState } from '../../../types/products.types';
 import './ProductList.css'
 
 const ProductList = (): JSX.Element => {
     const dispatch = useDispatch()
-    const { products: productsState } = useSelector((state:IState)=>state)
-    const { products } = productsState;
+    const { products: {products} } = useSelector((state:IState)=>state)
     const navigate = useNavigate()
 
-    const getAllProducts = async () => {
-        try {
-            let { data } = await axios('http://localhost:8000/products')
-            dispatch(getProducts(data))
-        } catch (error) {
-            console.error(error)
-        }
-    }
 
     const deleteProducts = async (id:any) =>{
         await axios.delete(`http://localhost:8000/products/${id}`)
-        getAllProducts()
+        getAllProducts(dispatch)
     }
 
     useEffect(()=>{
-        getAllProducts()
+        getAllProducts(dispatch)
     }, [])
 
     return (
