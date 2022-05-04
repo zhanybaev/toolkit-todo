@@ -5,6 +5,7 @@ import { FaStar } from 'react-icons/fa/'
 import { getDetail } from '../../../store/actions/product.action';
 import { IState } from '../../../types/products.types';
 import './ProductDetail.css'
+import axios from 'axios';
 
 
 const ProductDetail = (): JSX.Element => {
@@ -37,16 +38,22 @@ const ProductDetail = (): JSX.Element => {
                 sum+=elem
             });
         }
-        return arr ? Math.floor(sum/arr.length) : 1;
+        return arr && arr.length ? Math.floor(sum/arr.length) : 0;
+    }
+
+    const submitRating = async (value:number) => {
+        console.log(value);
+        let newProduct = JSON.parse(JSON.stringify(product));
+        newProduct.rating.push(value)
+        console.log(newProduct);
+        await axios.patch(`http://localhost:8000/products/${id}`, newProduct)
+        getDetail(dispatch, id)
     }
 
     useEffect(()=>{
         getDetail(dispatch, id)
     }, [])
 
-    if(product){
-        console.log(ratingDisplay(product.rating));
-    }
 
     return (
         <React.Fragment>
@@ -89,7 +96,7 @@ const ProductDetail = (): JSX.Element => {
                                 ))
                             }
                         </div>
-                        <button>Submit</button>
+                        <button onClick={()=>submitRating(currentValue)} >Submit</button>
                     </div>
                 ) :
                 <h2>loading</h2>
